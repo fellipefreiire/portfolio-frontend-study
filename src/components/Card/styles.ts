@@ -13,17 +13,30 @@ export const TagsWrapper = styled.header`
   margin-bottom: 8px;
 `
 
-export const Tag = styled.div`
+export const TAG_COLOR = {
+  react: '#00E3ED',
+  javascript: '#f9f871',
+  'react native': '#667DFF',
+  flutter: '#61C9F9',
+  dart: '#55DDCA',
+} as const
+
+interface ITagProps {
+  tagColor: keyof typeof TAG_COLOR
+}
+
+export const Tag = styled.div<ITagProps>`
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 2px 8px;
-  background: #f9f871;
+  background: ${({ tagColor }) => TAG_COLOR[tagColor]};
   border-radius: 1000px;
 
   span {
     font-size: 12px;
     color: black;
+    text-transform: capitalize;
   }
 `
 

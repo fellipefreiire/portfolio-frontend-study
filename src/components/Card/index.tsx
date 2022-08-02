@@ -1,27 +1,36 @@
 import * as S from './styles'
-import logoUdemy from '../../assets/logo-udemy.svg'
 
-export const Card = () => {
+interface ICardProps {
+  tags: string[]
+  title: string
+  description: string
+  teacher: string
+  company: string
+}
+
+export const Card = ({
+  tags,
+  title,
+  description,
+  teacher,
+  company,
+}: ICardProps) => {
   return (
     <S.CardContainer>
       <S.TagsWrapper>
-        <S.Tag>
-          <span>Flutter</span>
-        </S.Tag>
-        <S.Tag>
-          <span>Dart</span>
-        </S.Tag>
+        {tags.map((tag) => (
+          <S.Tag tagColor={tag as keyof typeof S.TAG_COLOR} key={tag}>
+            <span>{tag}</span>
+          </S.Tag>
+        ))}
       </S.TagsWrapper>
       <S.Content>
-        <h2>Flutter & Dart - The Complete Guide [2022 Edition]</h2>
-        <span>
-          Lorem ipsum dolor sit amet consectetur adipisicin g elit. Maxime
-          mollitia, molestiae quas vel sint commodi repudia...
-        </span>
+        <h2>{title}</h2>
+        <span>{description}</span>
       </S.Content>
       <S.Footer>
-        <span>Maximilian Schwarzmüller</span>
-        <img src={logoUdemy} alt='' />
+        <span>{teacher}</span>
+        <img src={require(`../../assets/logo-${company}.svg`)} alt='' />
       </S.Footer>
     </S.CardContainer>
   )
