@@ -106,7 +106,7 @@ export const Section = () => {
               />
             ))}
           </S.CardWrapper>
-          <S.Link>See all coursess</S.Link>
+          <S.Link>See all courses</S.Link>
         </S.Content>
       </Container>
     </S.SectionContainer>
