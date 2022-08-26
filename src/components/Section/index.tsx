@@ -1,4 +1,5 @@
 import { Card } from '../Card'
+import { Container } from '../Container'
 import * as S from './styles'
 
 const fakeData = [
@@ -88,22 +89,26 @@ const fakeData = [
 export const Section = () => {
   return (
     <S.SectionContainer>
-      <S.StudyWrapper>
-        <h1>What am I studying?</h1>
-      </S.StudyWrapper>
-      <S.CardWrapper>
-        {fakeData.map((item) => (
-          <Card
-            key={item.id}
-            tags={item.tags}
-            title={item.title}
-            description={item.description}
-            teacher={item.teacher}
-            company={item.company}
-          />
-        ))}
-      </S.CardWrapper>
-      <S.Link>See all courses</S.Link>
+      <Container>
+        <S.Content>
+          <S.StudyWrapper>
+            <h1>What am I studying?</h1>
+          </S.StudyWrapper>
+          <S.CardWrapper>
+            {fakeData.map((item) => (
+              <Card
+                key={item.id}
+                tags={item.tags}
+                title={item.title}
+                description={item.description}
+                teacher={item.teacher}
+                company={item.company}
+              />
+            ))}
+          </S.CardWrapper>
+          <S.Link>See all courses</S.Link>
+        </S.Content>
+      </Container>
     </S.SectionContainer>
   )
 }

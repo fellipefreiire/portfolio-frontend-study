@@ -2,8 +2,11 @@ import styled from 'styled-components'
 
 export const SectionContainer = styled.div`
   background: '#121212';
-  padding: 60px 110px 60px 128px;
-  display: flex;
+`
+
+export const Content = styled.div`
+  padding-bottom: 60px;
+  display: Flex;
   flex-direction: column;
   align-items: center;
 `
@@ -12,16 +15,28 @@ export const StudyWrapper = styled.div`
   margin-bottom: 40px;
 
   h1 {
-    font-size: 4.5rem;
+    font-size: 2rem;
     color: #00fea1;
     font-weight: bold;
+  }
+
+  @media (min-width: ${({ theme }) => theme.sizes.tabletPortraitUp}) {
+    h1 {
+      font-size: 3rem;
+    }
+  }
+
+  @media (min-width: ${({ theme }) => theme.sizes.desktopUp}) {
+    h1 {
+      font-size: 4.5rem;
+    }
   }
 `
 
 export const CardWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 32px;
+  gap: 16px;
   margin-bottom: 40px;
 `
 

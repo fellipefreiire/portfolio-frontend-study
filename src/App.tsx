@@ -4,6 +4,8 @@ import { MemoryHistory, BrowserHistory } from 'history'
 import { Section } from './components/Section'
 import { useState } from 'react'
 import { Study } from './pages/Study'
+import { ThemeProvider } from 'styled-components'
+import { defaultTheme } from './styles/theme/default'
 
 interface IAppProps {
   history: BrowserHistory | MemoryHistory
@@ -17,11 +19,13 @@ export const App = ({ location, history }: IAppProps) => {
     history.listen(({ location }) => setIsolationLocation(location))
 
   return (
-    <Router location={location || isolationLocation} navigator={history}>
-      <Routes>
-        <Route path='/study' element={<Study />} />
-        <Route path='/' element={<Section />} />
-      </Routes>
-    </Router>
+    <ThemeProvider theme={defaultTheme}>
+      <Router location={location || isolationLocation} navigator={history}>
+        <Routes>
+          <Route path='/study' element={<Study />} />
+          <Route path='/' element={<Section />} />
+        </Routes>
+      </Router>
+    </ThemeProvider>
   )
 }
