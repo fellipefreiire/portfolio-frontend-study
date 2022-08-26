@@ -91,7 +91,9 @@ export const Section = () => {
     <S.SectionContainer>
       <Container>
         <S.Content>
-          <S.StudyWrapper>{/* <h1>What am I studying?</h1> */}</S.StudyWrapper>
+          <S.StudyWrapper>
+            <h1>What am I studying?</h1>
+          </S.StudyWrapper>
           <S.CardWrapper>
             {fakeData.map((item) => (
               <Card
