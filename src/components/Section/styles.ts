@@ -1,45 +1,41 @@
-import styled from 'styled-components'
+import { styled } from '../../styles/theme/default'
 
-export const SectionContainer = styled.div`
-  background: '#121212';
-`
+export const Content = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  paddingBottom: 60,
+})
 
-export const Content = styled.div`
-  padding-bottom: 60px;
-  display: Flex;
-  flex-direction: column;
-  align-items: center;
-`
+export const StudyWrapper = styled('div', {
+  marginBottom: 40,
 
-export const StudyWrapper = styled.div`
-  margin-bottom: 40px;
+  '& h1': {
+    fontSize: '2rem',
+    color: '$primary',
+    fontWeight: 'bold',
+  },
 
-  h1 {
-    font-size: 2rem;
-    color: #00fea1;
-    font-weight: bold;
-  }
+  '@tabletPortraitUp': {
+    '& h1': {
+      fontSize: '3rem',
+    },
+  },
 
-  @media (min-width: ${({ theme }) => theme.sizes.tabletPortraitUp}) {
-    h1 {
-      font-size: 3rem;
-    }
-  }
+  '@desktopUp': {
+    '& h1': {
+      fontSize: '4.5rem',
+    },
+  },
+})
 
-  @media (min-width: ${({ theme }) => theme.sizes.desktopUp}) {
-    h1 {
-      font-size: 4.5rem;
-    }
-  }
-`
+export const CardWrapper = styled('div', {
+  display: 'flex',
+  flexWrap: 'wrap',
+  gap: 16,
+  marginBottom: 40,
+})
 
-export const CardWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-bottom: 40px;
-`
-
-export const Link = styled.a`
-  color: #ffac00;
-`
+export const Link = styled('a', {
+  color: '$tertiary',
+})

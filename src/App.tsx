@@ -1,11 +1,11 @@
-import './styles/global/styles.css'
-import { Route, Routes, Router, Location } from 'react-router-dom'
-import { MemoryHistory, BrowserHistory } from 'history'
-import { Section } from './components/Section'
 import { useState } from 'react'
+import { Route, Routes, Router, Location } from 'react-router-dom'
+
 import { Study } from './pages/Study'
-import { ThemeProvider } from 'styled-components'
-import { defaultTheme } from './styles/theme/default'
+import { Section } from './components/Section'
+
+import { MemoryHistory, BrowserHistory } from 'history'
+import { Course } from './pages/Course'
 
 interface IAppProps {
   history: BrowserHistory | MemoryHistory
@@ -19,13 +19,12 @@ export const App = ({ location, history }: IAppProps) => {
     history.listen(({ location }) => setIsolationLocation(location))
 
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <Router location={location || isolationLocation} navigator={history}>
-        <Routes>
-          <Route path='/study' element={<Study />} />
-          <Route path='/' element={<Section />} />
-        </Routes>
-      </Router>
-    </ThemeProvider>
+    <Router location={location || isolationLocation} navigator={history}>
+      <Routes>
+        <Route path='/study/course' element={<Course />} />
+        <Route path='/study' element={<Study />} />
+        <Route path='/' element={<Section />} />
+      </Routes>
+    </Router>
   )
 }

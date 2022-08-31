@@ -1,25 +1,25 @@
-import styled from 'styled-components'
+import { styled } from '../../styles/theme/default'
 
-export const Container = styled.div`
-  max-width: 540px;
-  padding-right: 32px;
-  padding-left: 32px;
-  margin-left: auto;
-  margin-right: auto;
+export const Container = styled('div', {
+  maxWidth: '540px',
+  paddingRight: '32px',
+  paddingLeft: '32px',
+  marginLeft: 'auto',
+  marginRight: 'auto',
 
-  @media (min-width: ${({ theme }) => theme.sizes.tabletPortraitUp}) {
-    max-width: 720px;
-  }
+  '@tabletPortraitUp': {
+    maxWidth: '720px',
+  },
 
-  @media (min-width: ${({ theme }) => theme.sizes.tabletLandscapeUp}) {
-    max-width: 960px;
-  }
+  '@tabletLandscapeUp': {
+    maxWidth: '960px',
+  },
 
-  @media (min-width: ${({ theme }) => theme.sizes.desktopUp}) {
-    max-width: 1140px;
-  }
+  '@desktopUp': {
+    maxWidth: '1140px',
+  },
 
-  @media (min-width: ${({ theme }) => theme.sizes.bigDesktopUp}) {
-    max-width: 1280px;
-  }
-`
+  '@bigDesktopUp': {
+    maxWidth: '1280px',
+  },
+})

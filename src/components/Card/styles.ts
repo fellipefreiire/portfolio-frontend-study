@@ -1,105 +1,104 @@
-import styled from 'styled-components'
+import { styled } from '../../styles/theme/default'
 
-export const CardContainer = styled.div`
-  background: #242424;
-  padding: 16px;
-  border-radius: 10px;
-  /* max-width: 358px; */
-  flex: 1;
+export const CardContainer = styled('div', {
+  backgroundColor: '$background800',
+  padding: 16,
+  borderRadius: 10,
+  flex: 1,
+  cursor: 'pointer',
 
-  @media (min-width: ${({ theme }) => theme.sizes.tabletPortraitUp}) {
-    flex: 0 0 calc(100% / 2 - 8px);
-  }
+  '@tabletPortraitUp': {
+    flex: '0 0 calc(100% / 2 - 8px)',
+  },
 
-  @media (min-width: ${({ theme }) => theme.sizes.tabletLandscapeUp}) {
-    flex: 0 0 calc(100% / 3 - 11px);
-  }
+  '@tabletLandscapeUp': {
+    flex: '0 0 calc(100% / 3 - 11px)',
+  },
+})
 
-  /* @media (min-width: ${({ theme }) => theme.sizes.desktopUp}) {
-    max-width: 1024px;
-  }
+export const TagsWrapper = styled('header', {
+  display: 'flex',
+  gap: 8,
+  marginBottom: 8,
+})
 
-  @media (min-width: ${({ theme }) => theme.sizes.bigDesktopUp}) {
-    max-width: 1140px;
-  } */
-`
+export const Tag = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  padding: '2px 8px',
+  borderRadius: 1000,
 
-export const TagsWrapper = styled.header`
-  display: flex;
-  gap: 8px;
-  margin-bottom: 8px;
-`
+  '& span': {
+    fontSize: '0.75rem',
+    color: '$background800',
+    textTransform: 'capitalize',
+  },
 
-export const TAG_COLOR = {
-  react: '#00E3ED',
-  javascript: '#f9f871',
-  'react native': '#667DFF',
-  flutter: '#61C9F9',
-  dart: '#55DDCA',
-} as const
+  variants: {
+    variant: {
+      react: {
+        backgroundColor: '#00e3ed',
+      },
+      javascript: {
+        backgroundColor: '#f9f871',
+      },
+      'react-native': {
+        backgroundColor: '#667DFF',
+      },
+      flutter: {
+        backgroundColor: '#61C9F9',
+      },
+      dart: {
+        backgroundColor: '#55DDCA',
+      },
+    },
+  },
+})
 
-interface ITagProps {
-  tagColor: keyof typeof TAG_COLOR
-}
+export const Content = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  color: '$text',
+  gap: 12,
+  marginBottom: 24,
 
-export const Tag = styled.div<ITagProps>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2px 8px;
-  background: ${({ tagColor }) => TAG_COLOR[tagColor]};
-  border-radius: 1000px;
+  '& h2': {
+    display: '-webkit-box',
+    '-webkit-line-clamp': 1,
+    '-webkit-box-orient': 'vertical',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    fontSize: '1.5rem',
+  },
 
-  span {
-    font-size: 12px;
-    color: black;
-    text-transform: capitalize;
-  }
-`
+  '& span': {
+    display: '-webkit-box',
+    '-webkit-line-clamp': 2,
+    '-webkit-box-orient': 'vertical',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    fontSize: '1rem',
+  },
+})
 
-export const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  color: white;
-  gap: 12px;
-  margin-bottom: 24px;
+export const Footer = styled('footer', {
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  color: '$text',
+  gap: 8,
 
-  h2 {
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 24px;
-  }
+  '& span': {
+    display: '-webkit-box',
+    '-webkit-line-clamp': 1,
+    '-webkit-box-orient': 'vertical',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    fontSize: '1.125rem',
+  },
 
-  span {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 16px;
-  }
-`
-
-export const Footer = styled.footer`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: white;
-  gap: 8px;
-
-  span {
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 18px;
-  }
-
-  img {
-    height: 22px;
-  }
-`
+  '& img': {
+    height: 22,
+  },
+})
